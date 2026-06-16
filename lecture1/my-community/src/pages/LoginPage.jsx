@@ -97,6 +97,7 @@ const LoginPage = () => {
               placeholder='아이디를 입력하세요'
               fullWidth
               autoComplete='username'
+              slotProps={{ inputLabel: { shrink: true } }}
             />
             <TextField
               label='비밀번호'
@@ -107,6 +108,7 @@ const LoginPage = () => {
               placeholder='비밀번호를 입력하세요'
               fullWidth
               autoComplete='current-password'
+              slotProps={{ inputLabel: { shrink: true } }}
             />
             <Button
               type='submit'
