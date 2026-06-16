@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   Box, Container, Paper, Typography, TextField, Button, Alert,
@@ -53,7 +53,7 @@ const PostCreatePage = () => {
       <AppBar position='sticky' elevation={0} sx={{
         background: 'rgba(3, 7, 18, 0.85)',
         backdropFilter: 'blur(12px)',
-        borderBottom: '1px solid rgba(74,144,217,0.15)',
+        borderBottom: '1px solid rgba(61,127,176,0.15)',
       }}>
         <Toolbar>
           <Tooltip title='뒤로 가기'>
@@ -63,7 +63,7 @@ const PostCreatePage = () => {
           </Tooltip>
           <Typography
             className='pixel-font'
-            sx={{ fontSize: '0.65rem', color: '#4a90d9', flexGrow: 1, letterSpacing: '0.05em' }}
+            sx={{ fontSize: '0.65rem', color: '#5ab0d0', flexGrow: 1, letterSpacing: '0.05em' }}
           >
             UNTIL DAWN
           </Typography>
@@ -105,7 +105,7 @@ const PostCreatePage = () => {
                 variant='outlined'
                 startIcon={<ShuffleIcon />}
                 onClick={handleRandomImage}
-                sx={{ borderColor: 'rgba(74,144,217,0.4)', color: 'primary.light', mb: 2 }}
+                sx={{ borderColor: 'rgba(61,127,176,0.4)', color: 'primary.light', mb: 2 }}
               >
                 랜덤 이미지 추가
               </Button>
@@ -136,8 +136,8 @@ const PostCreatePage = () => {
               disabled={loading}
               sx={{
                 py: 1.5,
-                background: 'linear-gradient(135deg, #4a90d9, #7c4dff)',
-                '&:hover': { background: 'linear-gradient(135deg, #74b3e8, #a57fff)' },
+                background: 'linear-gradient(135deg, #3d7fb0, #c8956a)',
+                '&:hover': { background: 'linear-gradient(135deg, #5ab0d0, #d4a878)' },
               }}
             >
               {loading ? <CircularProgress size={22} color='inherit' /> : '게시물 등록'}

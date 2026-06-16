@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
   Box, Container, Typography, Paper, Button, Chip, Alert,
@@ -71,7 +71,7 @@ const AdminPage = () => {
       <AppBar position='sticky' elevation={0} sx={{
         background: 'rgba(3, 7, 18, 0.85)',
         backdropFilter: 'blur(12px)',
-        borderBottom: '1px solid rgba(74,144,217,0.15)',
+        borderBottom: '1px solid rgba(61,127,176,0.15)',
       }}>
         <Toolbar>
           <Tooltip title='게시판으로'>
@@ -154,28 +154,28 @@ const AdminPage = () => {
             전체 회원
           </Typography>
           {loading ? (
-            <Skeleton variant='rounded' height={200} sx={{ bgcolor: 'rgba(74,144,217,0.08)' }} />
+            <Skeleton variant='rounded' height={200} sx={{ bgcolor: 'rgba(61,127,176,0.08)' }} />
           ) : (
             <TableContainer>
               <Table size='small'>
                 <TableHead>
                   <TableRow>
-                    <TableCell sx={{ color: 'text.secondary', borderColor: 'rgba(74,144,217,0.15)' }}>아이디</TableCell>
-                    <TableCell sx={{ color: 'text.secondary', borderColor: 'rgba(74,144,217,0.15)' }}>이름</TableCell>
-                    <TableCell sx={{ color: 'text.secondary', borderColor: 'rgba(74,144,217,0.15)' }}>상태</TableCell>
-                    <TableCell sx={{ color: 'text.secondary', borderColor: 'rgba(74,144,217,0.15)' }}>가입일</TableCell>
-                    <TableCell sx={{ color: 'text.secondary', borderColor: 'rgba(74,144,217,0.15)' }}>관리</TableCell>
+                    <TableCell sx={{ color: 'text.secondary', borderColor: 'rgba(61,127,176,0.15)' }}>아이디</TableCell>
+                    <TableCell sx={{ color: 'text.secondary', borderColor: 'rgba(61,127,176,0.15)' }}>이름</TableCell>
+                    <TableCell sx={{ color: 'text.secondary', borderColor: 'rgba(61,127,176,0.15)' }}>상태</TableCell>
+                    <TableCell sx={{ color: 'text.secondary', borderColor: 'rgba(61,127,176,0.15)' }}>가입일</TableCell>
+                    <TableCell sx={{ color: 'text.secondary', borderColor: 'rgba(61,127,176,0.15)' }}>관리</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {others.map(u => (
                     <TableRow key={u.id}>
-                      <TableCell sx={{ color: 'text.primary', borderColor: 'rgba(74,144,217,0.08)' }}>
+                      <TableCell sx={{ color: 'text.primary', borderColor: 'rgba(61,127,176,0.08)' }}>
                         @{u.username}
                         {u.is_admin && <Chip label='관리자' size='small' color='warning' sx={{ ml: 1, fontSize: '0.65rem' }} />}
                       </TableCell>
-                      <TableCell sx={{ color: 'text.secondary', borderColor: 'rgba(74,144,217,0.08)' }}>{u.full_name}</TableCell>
-                      <TableCell sx={{ borderColor: 'rgba(74,144,217,0.08)' }}>
+                      <TableCell sx={{ color: 'text.secondary', borderColor: 'rgba(61,127,176,0.08)' }}>{u.full_name}</TableCell>
+                      <TableCell sx={{ borderColor: 'rgba(61,127,176,0.08)' }}>
                         <Chip
                           label={statusLabel[u.status]}
                           size='small'
@@ -183,10 +183,10 @@ const AdminPage = () => {
                           sx={{ fontSize: '0.7rem' }}
                         />
                       </TableCell>
-                      <TableCell sx={{ color: 'text.secondary', fontSize: '0.8rem', borderColor: 'rgba(74,144,217,0.08)' }}>
+                      <TableCell sx={{ color: 'text.secondary', fontSize: '0.8rem', borderColor: 'rgba(61,127,176,0.08)' }}>
                         {formatDate(u.created_at)}
                       </TableCell>
-                      <TableCell sx={{ borderColor: 'rgba(74,144,217,0.08)' }}>
+                      <TableCell sx={{ borderColor: 'rgba(61,127,176,0.08)' }}>
                         <Box sx={{ display: 'flex', gap: 0.5 }}>
                           {u.status !== 'approved' && (
                             <Button size='small' color='success' onClick={() => handleStatus(u.id, 'approved')}
@@ -217,7 +217,7 @@ const AdminPage = () => {
 
       {/* 삭제 확인 다이얼로그 */}
       <Dialog open={!!deleteDialog} onClose={() => setDeleteDialog(null)}
-        PaperProps={{ sx: { bgcolor: 'background.paper', border: '1px solid rgba(74,144,217,0.2)' } }}>
+        PaperProps={{ sx: { bgcolor: 'background.paper', border: '1px solid rgba(61,127,176,0.2)' } }}>
         <DialogTitle>회원 삭제</DialogTitle>
         <DialogContent>
           <Typography>

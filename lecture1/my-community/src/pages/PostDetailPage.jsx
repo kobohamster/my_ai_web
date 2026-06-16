@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import {
   Box, Container, Paper, Typography, Button, Chip, Skeleton,
@@ -93,7 +93,7 @@ const PostDetailPage = () => {
       <AppBar position='sticky' elevation={0} sx={{
         background: 'rgba(3, 7, 18, 0.85)',
         backdropFilter: 'blur(12px)',
-        borderBottom: '1px solid rgba(74,144,217,0.15)',
+        borderBottom: '1px solid rgba(61,127,176,0.15)',
       }}>
         <Toolbar>
           <Tooltip title='뒤로 가기'>
@@ -103,7 +103,7 @@ const PostDetailPage = () => {
           </Tooltip>
           <Typography
             className='pixel-font'
-            sx={{ fontSize: '0.65rem', color: '#4a90d9', flexGrow: 1, letterSpacing: '0.05em' }}
+            sx={{ fontSize: '0.65rem', color: '#5ab0d0', flexGrow: 1, letterSpacing: '0.05em' }}
           >
             UNTIL DAWN
           </Typography>
@@ -115,9 +115,9 @@ const PostDetailPage = () => {
 
         {loading ? (
           <Paper elevation={0} sx={{ p: 4, borderRadius: 3 }}>
-            <Skeleton variant='text' height={40} sx={{ bgcolor: 'rgba(74,144,217,0.08)', mb: 2 }} />
-            <Skeleton variant='text' height={20} width='40%' sx={{ bgcolor: 'rgba(74,144,217,0.08)', mb: 3 }} />
-            <Skeleton variant='rounded' height={200} sx={{ bgcolor: 'rgba(74,144,217,0.08)' }} />
+            <Skeleton variant='text' height={40} sx={{ bgcolor: 'rgba(61,127,176,0.08)', mb: 2 }} />
+            <Skeleton variant='text' height={20} width='40%' sx={{ bgcolor: 'rgba(61,127,176,0.08)', mb: 3 }} />
+            <Skeleton variant='rounded' height={200} sx={{ bgcolor: 'rgba(61,127,176,0.08)' }} />
           </Paper>
         ) : post && (
           <Paper elevation={0} sx={{ p: { xs: 3, sm: 4 }, borderRadius: 3 }}>
@@ -131,7 +131,7 @@ const PostDetailPage = () => {
               <Chip
                 label={post.author_username}
                 size='small'
-                sx={{ bgcolor: 'rgba(74,144,217,0.15)', color: 'primary.light', fontSize: '0.75rem' }}
+                sx={{ bgcolor: 'rgba(61,127,176,0.15)', color: 'primary.light', fontSize: '0.75rem' }}
               />
               <Typography variant='body2' sx={{ color: 'text.secondary', fontSize: '0.8rem' }}>
                 {formatDate(post.created_at)}
@@ -144,7 +144,7 @@ const PostDetailPage = () => {
               </Box>
             </Box>
 
-            <Divider sx={{ borderColor: 'rgba(74,144,217,0.1)', mb: 3 }} />
+            <Divider sx={{ borderColor: 'rgba(61,127,176,0.1)', mb: 3 }} />
 
             {/* 이미지 */}
             {post.image_url && (
@@ -170,7 +170,7 @@ const PostDetailPage = () => {
               {post.content}
             </Typography>
 
-            <Divider sx={{ borderColor: 'rgba(74,144,217,0.1)', mb: 3 }} />
+            <Divider sx={{ borderColor: 'rgba(61,127,176,0.1)', mb: 3 }} />
 
             {/* Do it now 버튼 */}
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, py: 2 }}>
@@ -183,13 +183,13 @@ const PostDetailPage = () => {
                   px: 4, py: 1.5, fontSize: '1rem', fontWeight: 700,
                   ...(didIt
                     ? {
-                        background: 'linear-gradient(135deg, #4a90d9, #7c4dff)',
+                        background: 'linear-gradient(135deg, #3d7fb0, #c8956a)',
                         '&:hover': { background: 'linear-gradient(135deg, #2d6fae, #5a2fd4)' },
                       }
                     : {
-                        borderColor: '#4a90d9',
-                        color: '#4a90d9',
-                        '&:hover': { borderColor: '#74b3e8', bgcolor: 'rgba(74,144,217,0.08)' },
+                        borderColor: '#5ab0d0',
+                        color: '#5ab0d0',
+                        '&:hover': { borderColor: '#5ab0d0', bgcolor: 'rgba(61,127,176,0.08)' },
                       }
                   ),
                 }}

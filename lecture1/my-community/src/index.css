@@ -6,7 +6,7 @@
 
 html, body {
   min-height: 100vh;
-  background: #030712;
+  background: #080c14;
 }
 
 #root {
@@ -14,13 +14,21 @@ html, body {
   position: relative;
 }
 
-/* 새벽 하늘 패럴랙스 배경 */
+/* 새벽 바다 패럴랙스 배경
+   색상 출처: 새벽 바다 사진
+   #080c14 바위/최어둠 → #0d1e38 깊은바다 → #1a3f6b 바다 → #c8956a 지평선 노을 */
 .dawn-bg {
   position: fixed;
   inset: 0;
   z-index: -1;
   overflow: hidden;
-  background: #030712;
+  /* 하단: 깊은 바다 / 상단: 새벽 어둠 */
+  background: linear-gradient(
+    to top,
+    #0d1e38 0%,
+    #0a1628 30%,
+    #080c14 100%
+  );
 }
 
 /* 별 레이어 */
@@ -29,60 +37,60 @@ html, body {
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.7) 0%, transparent 100%),
-    radial-gradient(1px 1px at 25% 8%, rgba(255,255,255,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 40% 20%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 55% 5%, rgba(255,255,255,0.8) 0%, transparent 100%),
-    radial-gradient(1px 1px at 70% 12%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 85% 18%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1px 1px at 15% 35%, rgba(255,255,255,0.3) 0%, transparent 100%),
-    radial-gradient(1px 1px at 30% 45%, rgba(255,255,255,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 60% 30%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(1px 1px at 78% 40%, rgba(255,255,255,0.6) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 5% 55%, rgba(255,255,255,0.4) 0%, transparent 100%),
-    radial-gradient(1.5px 1.5px at 45% 60%, rgba(255,255,255,0.3) 0%, transparent 100%),
-    radial-gradient(1px 1px at 90% 50%, rgba(255,255,255,0.5) 0%, transparent 100%),
-    radial-gradient(1px 1px at 20% 70%, rgba(255,255,255,0.3) 0%, transparent 100%),
-    radial-gradient(1px 1px at 65% 65%, rgba(255,255,255,0.4) 0%, transparent 100%);
+    radial-gradient(1px 1px at 10% 15%, rgba(220,232,240,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 8%,  rgba(220,232,240,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 40% 20%, rgba(220,232,240,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 5%,  rgba(220,232,240,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 12%, rgba(220,232,240,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 85% 18%, rgba(220,232,240,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 35%, rgba(220,232,240,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 30% 45%, rgba(220,232,240,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 30%, rgba(220,232,240,0.3) 0%, transparent 100%),
+    radial-gradient(1px 1px at 78% 40%, rgba(220,232,240,0.5) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 5%  55%, rgba(220,232,240,0.3) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 45% 60%, rgba(220,232,240,0.25) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 50%, rgba(220,232,240,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 20% 70%, rgba(220,232,240,0.2) 0%, transparent 100%),
+    radial-gradient(1px 1px at 65% 65%, rgba(220,232,240,0.3) 0%, transparent 100%);
   animation: twinkle 6s ease-in-out infinite alternate;
 }
 
-/* 새벽빛 노을 레이어 */
+/* 지평선 노을빛 레이어 — 사진의 복숭아/살구 컬러 */
 .dawn-bg::after {
   content: '';
   position: absolute;
-  bottom: -30%;
+  bottom: -20%;
   left: 50%;
   transform: translateX(-50%);
-  width: 160%;
-  height: 80%;
+  width: 180%;
+  height: 70%;
   background: radial-gradient(ellipse at center bottom,
-    rgba(124, 77, 255, 0.22) 0%,
-    rgba(74, 144, 217, 0.12) 35%,
-    rgba(3, 7, 18, 0) 70%
+    rgba(200, 149, 106, 0.2) 0%,
+    rgba(61,  127, 176, 0.12) 35%,
+    rgba(8,   12,  20,  0)   70%
   );
   animation: dawnPulse 10s ease-in-out infinite alternate;
 }
 
 @keyframes twinkle {
-  0% { opacity: 0.6; }
+  0%   { opacity: 0.55; }
   100% { opacity: 1; }
 }
 
 @keyframes dawnPulse {
-  0% { opacity: 0.5; transform: translateX(-50%) scale(1); }
-  100% { opacity: 1; transform: translateX(-50%) scale(1.05); }
+  0%   { opacity: 0.5; transform: translateX(-50%) scale(1); }
+  100% { opacity: 1;   transform: translateX(-50%) scale(1.06); }
 }
 
-/* 수평선 빛 */
+/* 수평선 파도빛 */
 .dawn-horizon {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 200px;
+  height: 180px;
   background: linear-gradient(to top,
-    rgba(74, 144, 217, 0.08) 0%,
+    rgba(61, 127, 176, 0.1) 0%,
     transparent 100%
   );
   z-index: -1;
@@ -94,17 +102,11 @@ html, body {
   font-family: 'Press Start 2P', cursive !important;
 }
 
-/* 스크롤바 커스텀 */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #0a1628;
-}
+/* 스크롤바 */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a1628; }
 ::-webkit-scrollbar-thumb {
-  background: rgba(74, 144, 217, 0.4);
+  background: rgba(61, 127, 176, 0.45);
   border-radius: 3px;
 }
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(74, 144, 217, 0.7);
-}
+::-webkit-scrollbar-thumb:hover { background: rgba(90, 176, 208, 0.7); }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import {
   Box, Container, Typography, Button, Card, CardContent, CardActionArea,
@@ -49,12 +49,12 @@ const PostListPage = () => {
       <AppBar position='sticky' elevation={0} sx={{
         background: 'rgba(3, 7, 18, 0.85)',
         backdropFilter: 'blur(12px)',
-        borderBottom: '1px solid rgba(74,144,217,0.15)',
+        borderBottom: '1px solid rgba(61,127,176,0.15)',
       }}>
         <Toolbar>
           <Typography
             className='pixel-font'
-            sx={{ fontSize: '0.65rem', color: '#4a90d9', flexGrow: 1, letterSpacing: '0.05em', cursor: 'pointer' }}
+            sx={{ fontSize: '0.65rem', color: '#5ab0d0', flexGrow: 1, letterSpacing: '0.05em', cursor: 'pointer' }}
             onClick={() => navigate('/posts')}
           >
             UNTIL DAWN
@@ -90,8 +90,8 @@ const PostListPage = () => {
             startIcon={<AddIcon />}
             onClick={() => navigate('/posts/new')}
             sx={{
-              background: 'linear-gradient(135deg, #4a90d9, #7c4dff)',
-              '&:hover': { background: 'linear-gradient(135deg, #74b3e8, #a57fff)' },
+              background: 'linear-gradient(135deg, #3d7fb0, #c8956a)',
+              '&:hover': { background: 'linear-gradient(135deg, #5ab0d0, #d4a878)' },
             }}
           >
             게시물 추가
@@ -104,7 +104,7 @@ const PostListPage = () => {
         <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
           {loading
             ? Array.from({ length: 4 }).map((_, i) => (
-                <Skeleton key={i} variant='rounded' height={100} sx={{ bgcolor: 'rgba(74,144,217,0.08)' }} />
+                <Skeleton key={i} variant='rounded' height={100} sx={{ bgcolor: 'rgba(61,127,176,0.08)' }} />
               ))
             : posts.length === 0
               ? (
@@ -119,7 +119,7 @@ const PostListPage = () => {
                 </Box>
               )
               : posts.map((post) => (
-                <Card key={post.id} sx={{ transition: 'all 0.2s', '&:hover': { borderColor: 'rgba(74,144,217,0.4)', transform: 'translateY(-1px)' } }}>
+                <Card key={post.id} sx={{ transition: 'all 0.2s', '&:hover': { borderColor: 'rgba(61,127,176,0.4)', transform: 'translateY(-1px)' } }}>
                   <CardActionArea component={Link} to={`/posts/${post.id}`}>
                     <CardContent sx={{ py: 2.5 }}>
                       <Typography variant='h3' sx={{ color: 'text.primary', mb: 1.5, fontSize: '1rem' }}>
@@ -129,7 +129,7 @@ const PostListPage = () => {
                         <Chip
                           label={post.author_username}
                           size='small'
-                          sx={{ bgcolor: 'rgba(74,144,217,0.15)', color: 'primary.light', fontSize: '0.7rem' }}
+                          sx={{ bgcolor: 'rgba(61,127,176,0.15)', color: 'primary.light', fontSize: '0.7rem' }}
                         />
                         <Typography variant='body2' sx={{ color: 'text.secondary', fontSize: '0.75rem' }}>
                           {formatDate(post.created_at)}

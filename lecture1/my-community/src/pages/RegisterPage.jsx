@@ -111,7 +111,7 @@ const RegisterPage = () => {
             <Button
               component={Link} to='/'
               variant='outlined'
-              sx={{ borderColor: '#4a90d9', color: '#4a90d9' }}
+              sx={{ borderColor: '#5ab0d0', color: '#5ab0d0' }}
             >
               로그인 페이지로
             </Button>
@@ -126,7 +126,7 @@ const RegisterPage = () => {
       <Container maxWidth='xs'>
         <Paper elevation={0} sx={{ p: 4, borderRadius: 3 }}>
           <Box sx={{ textAlign: 'center', mb: 3 }}>
-            <Typography className='pixel-font' sx={{ fontSize: '0.8rem', color: '#4a90d9', letterSpacing: '0.05em' }}>
+            <Typography className='pixel-font' sx={{ fontSize: '0.8rem', color: '#5ab0d0', letterSpacing: '0.05em' }}>
               UNTIL DAWN
             </Typography>
           </Box>
@@ -134,9 +134,9 @@ const RegisterPage = () => {
           {/* 단계 표시 */}
           <Box sx={{ display: 'flex', justifyContent: 'center', gap: 1, mb: 3 }}>
             <Chip label='1단계: 기본 정보' size='small'
-              sx={{ bgcolor: step === 1 ? 'primary.main' : 'rgba(74,144,217,0.2)', color: '#fff', fontSize: '0.7rem' }} />
+              sx={{ bgcolor: step === 1 ? 'primary.main' : 'rgba(61,127,176,0.2)', color: '#fff', fontSize: '0.7rem' }} />
             <Chip label='2단계: 가입 목적' size='small'
-              sx={{ bgcolor: step === 2 ? 'primary.main' : 'rgba(74,144,217,0.2)', color: '#fff', fontSize: '0.7rem' }} />
+              sx={{ bgcolor: step === 2 ? 'primary.main' : 'rgba(61,127,176,0.2)', color: '#fff', fontSize: '0.7rem' }} />
           </Box>
 
           <Typography variant='h2' sx={{ mb: 3, textAlign: 'center' }}>
@@ -177,7 +177,7 @@ const RegisterPage = () => {
                     variant='outlined'
                     onClick={handleUsernameCheck}
                     disabled={usernameStatus === 'checking'}
-                    sx={{ minWidth: 80, borderColor: '#4a90d9', color: '#4a90d9', flexShrink: 0, alignSelf: 'flex-start', mt: 0.5 }}
+                    sx={{ minWidth: 80, borderColor: '#5ab0d0', color: '#5ab0d0', flexShrink: 0, alignSelf: 'flex-start', mt: 0.5 }}
                   >
                     {usernameStatus === 'checking' ? <CircularProgress size={16} /> : '중복확인'}
                   </Button>
@@ -222,8 +222,8 @@ const RegisterPage = () => {
                 fullWidth
                 sx={{
                   mt: 1, py: 1.5,
-                  background: 'linear-gradient(135deg, #4a90d9, #7c4dff)',
-                  '&:hover': { background: 'linear-gradient(135deg, #74b3e8, #a57fff)' },
+                  background: 'linear-gradient(135deg, #3d7fb0, #c8956a)',
+                  '&:hover': { background: 'linear-gradient(135deg, #5ab0d0, #d4a878)' },
                 }}
               >
                 다음 단계 →
@@ -252,7 +252,7 @@ const RegisterPage = () => {
                 <Button
                   variant='outlined'
                   onClick={() => setStep(1)}
-                  sx={{ flex: 1, borderColor: 'rgba(74,144,217,0.4)', color: 'text.secondary' }}
+                  sx={{ flex: 1, borderColor: 'rgba(61,127,176,0.4)', color: 'text.secondary' }}
                 >
                   ← 이전
                 </Button>
@@ -262,8 +262,8 @@ const RegisterPage = () => {
                   disabled={loading}
                   sx={{
                     flex: 2, py: 1.5,
-                    background: 'linear-gradient(135deg, #4a90d9, #7c4dff)',
-                    '&:hover': { background: 'linear-gradient(135deg, #74b3e8, #a57fff)' },
+                    background: 'linear-gradient(135deg, #3d7fb0, #c8956a)',
+                    '&:hover': { background: 'linear-gradient(135deg, #5ab0d0, #d4a878)' },
                   }}
                 >
                   {loading ? <CircularProgress size={22} color='inherit' /> : '가입 신청'}
@@ -272,7 +272,7 @@ const RegisterPage = () => {
             </Box>
           )}
 
-          <Divider sx={{ my: 2, borderColor: 'rgba(74,144,217,0.15)' }} />
+          <Divider sx={{ my: 2, borderColor: 'rgba(61,127,176,0.15)' }} />
           <Box sx={{ textAlign: 'center' }}>
             <Button
               component={Link} to='/'

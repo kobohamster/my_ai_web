@@ -57,8 +57,8 @@ const LoginPage = () => {
               className='pixel-font'
               sx={{
                 fontSize: { xs: '0.9rem', sm: '1.1rem' },
-                color: '#4a90d9',
-                textShadow: '0 0 20px rgba(74,144,217,0.8), 0 0 40px rgba(74,144,217,0.4)',
+                color: '#5ab0d0',
+                textShadow: '0 0 20px rgba(90,176,208,0.9), 0 0 40px rgba(90,176,208,0.4)',
                 letterSpacing: '0.05em',
                 lineHeight: 1.8,
               }}
@@ -69,8 +69,8 @@ const LoginPage = () => {
               className='pixel-font'
               sx={{
                 fontSize: { xs: '0.9rem', sm: '1.1rem' },
-                color: '#7c4dff',
-                textShadow: '0 0 20px rgba(124,77,255,0.8), 0 0 40px rgba(124,77,255,0.4)',
+                color: '#c8956a',
+                textShadow: '0 0 20px rgba(200,149,106,0.9), 0 0 40px rgba(200,149,106,0.4)',
                 letterSpacing: '0.05em',
                 lineHeight: 1.8,
               }}
@@ -115,8 +115,8 @@ const LoginPage = () => {
               disabled={loading}
               sx={{
                 mt: 1, py: 1.5,
-                background: 'linear-gradient(135deg, #4a90d9, #7c4dff)',
-                '&:hover': { background: 'linear-gradient(135deg, #74b3e8, #a57fff)' },
+                background: 'linear-gradient(135deg, #3d7fb0, #c8956a)',
+                '&:hover': { background: 'linear-gradient(135deg, #5ab0d0, #d4a878)' },
               }}
             >
               {loading ? <CircularProgress size={22} color='inherit' /> : '로그인'}

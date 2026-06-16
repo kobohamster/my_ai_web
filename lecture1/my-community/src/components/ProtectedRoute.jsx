@@ -1,4 +1,4 @@
-import { Navigate } from 'react-router-dom'
+﻿import { Navigate } from 'react-router-dom'
 import { Box, CircularProgress } from '@mui/material'
 import { useAuth } from '../context/AuthContext'
 
@@ -8,7 +8,7 @@ const ProtectedRoute = ({ children, requireAdmin = false }) => {
   if (loading) {
     return (
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh' }}>
-        <CircularProgress sx={{ color: '#4a90d9' }} />
+        <CircularProgress sx={{ color: '#5ab0d0' }} />
       </Box>
     )
   }
