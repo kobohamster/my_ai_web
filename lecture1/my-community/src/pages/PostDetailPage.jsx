@@ -98,6 +98,7 @@ const CommentItem = ({ comment, currentProfile, onUpdate, onDelete }) => {
                   <Tooltip title='수정'>
                     <IconButton
                       size='small'
+                      aria-label='댓글 수정'
                       onClick={() => setEditing(true)}
                       sx={{ color: 'text.secondary', p: 0.5, '&:hover': { color: 'primary.light' } }}
                     >
@@ -108,6 +109,7 @@ const CommentItem = ({ comment, currentProfile, onUpdate, onDelete }) => {
                 <Tooltip title='삭제'>
                   <IconButton
                     size='small'
+                    aria-label='댓글 삭제'
                     onClick={handleDelete}
                     disabled={deleting}
                     sx={{ color: 'text.secondary', p: 0.5, '&:hover': { color: 'error.main' } }}
