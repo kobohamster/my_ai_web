@@ -37,6 +37,31 @@
       margin: 4px;
     }
     .footer { margin-top: 24px; font-size: 0.8rem; color: #aaa; }
+    .projects { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+    .project-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 20px;
+      border-radius: 12px;
+      border: 1.5px solid #e5e7eb;
+      text-decoration: none;
+      color: #333;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: all 0.2s;
+      background: #fafafa;
+    }
+    .project-btn:hover {
+      border-color: #667eea;
+      background: #f0f1ff;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(102,126,234,0.15);
+    }
+    .project-btn .icon { font-size: 1.4rem; }
+    .project-btn .meta { text-align: left; }
+    .project-btn .meta span { display: block; font-size: 0.75rem; color: #888; font-weight: 400; margin-top: 2px; }
+    .section-label { margin-top: 24px; font-size: 0.75rem; color: #aaa; letter-spacing: 0.08em; text-transform: uppercase; }
   </style>
 </head>
 <body>
@@ -48,6 +73,16 @@
       <span class="badge">HTML</span>
       <span class="badge">CSS</span>
       <span class="badge">React</span>
+    </div>
+    <p class="section-label">Projects</p>
+    <div class="projects">
+      <a href="./community/" class="project-btn">
+        <span class="icon">🌙</span>
+        <div class="meta">
+          Until Dawn
+          <span>영원히 일을 미루는 모임 · React + Supabase</span>
+        </div>
+      </a>
     </div>
     <div class="footer">✨ GitHub Pages로 배포됨</div>
   </div>
