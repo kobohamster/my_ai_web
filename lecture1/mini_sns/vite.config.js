@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/my-first-website/chocorate/',
+  base: '/my_ai_web/chocorate/',
 })

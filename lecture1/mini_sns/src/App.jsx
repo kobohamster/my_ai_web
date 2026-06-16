@@ -12,7 +12,7 @@ import ExperiencePage from './pages/ExperiencePage'
 
 const App = () => {
   return (
-    <BrowserRouter basename="/my-first-website/chocorate">
+    <BrowserRouter basename="/my_ai_web/chocorate">
       <AuthProvider>
         <Header />
         <Routes>
