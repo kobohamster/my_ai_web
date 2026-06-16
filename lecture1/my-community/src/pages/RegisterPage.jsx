@@ -154,6 +154,7 @@ const RegisterPage = () => {
                 onChange={handleChange}
                 fullWidth
                 placeholder='실명을 입력하세요'
+                slotProps={{ inputLabel: { shrink: true } }}
               />
 
               <Box>
@@ -165,6 +166,7 @@ const RegisterPage = () => {
                     onChange={handleChange}
                     fullWidth
                     placeholder='영문/숫자, 3자 이상'
+                    slotProps={{ inputLabel: { shrink: true } }}
                     error={usernameStatus === 'taken'}
                     helperText={
                       usernameStatus === 'ok' ? '✅ 사용 가능한 아이디입니다.' :
@@ -191,6 +193,7 @@ const RegisterPage = () => {
                   onChange={handleChange}
                   fullWidth
                   placeholder='8자 이상, 숫자 포함'
+                  slotProps={{ inputLabel: { shrink: true } }}
                   disabled={usernameStatus !== 'ok'}
                 />
                 {form.password.length > 0 && (
@@ -209,7 +212,7 @@ const RegisterPage = () => {
                 value={form.birthDate}
                 onChange={handleChange}
                 fullWidth
-                InputLabelProps={{ shrink: true }}
+                slotProps={{ inputLabel: { shrink: true } }}
                 helperText='15세 이상만 가입 가능합니다'
               />
 
@@ -243,6 +246,7 @@ const RegisterPage = () => {
                 multiline
                 rows={4}
                 placeholder='예) 저는 오늘도 마감을 미루며 이 폼을 작성하고 있습니다...'
+                slotProps={{ inputLabel: { shrink: true } }}
               />
               <Box sx={{ display: 'flex', gap: 1 }}>
                 <Button
