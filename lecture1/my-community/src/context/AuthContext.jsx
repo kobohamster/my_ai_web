@@ -80,7 +80,7 @@ export const AuthProvider = ({ children }) => {
     return !data
   }
 
-  const register = async ({ username, password, fullName, birthDate, joinPurpose }) => {
+  const register = async ({ username, password, fullName, birthDate }) => {
     const email = toInternalEmail(username)
     const { data, error } = await supabase.auth.signUp({ email, password })
     if (error) throw error
@@ -90,14 +90,12 @@ export const AuthProvider = ({ children }) => {
       username,
       full_name: fullName,
       birth_date: birthDate,
-      join_purpose: joinPurpose,
-      status: 'pending',
+      status: 'approved',
       is_admin: false,
     })
     if (profileError) throw profileError
 
-    // 이메일 인증 없이 바로 로그아웃 (관리자 승인 대기)
-    await supabase.auth.signOut()
+    await fetchProfile(data.user.id)
     return true
   }
 
