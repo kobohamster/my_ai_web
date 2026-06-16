@@ -157,32 +157,29 @@ const RegisterPage = () => {
                 slotProps={{ inputLabel: { shrink: true } }}
               />
 
-              <Box>
-                <Typography variant='caption' sx={{ color: 'text.secondary', display: 'block', mb: 0.5, ml: 0.2 }}>
-                  아이디 *
-                </Typography>
-                <Box sx={{ display: 'flex', gap: 1, alignItems: 'flex-start' }}>
-                  <TextField
-                    name='username'
-                    value={form.username}
-                    onChange={handleChange}
-                    fullWidth
-                    placeholder='영문/숫자, 3자 이상'
-                    error={usernameStatus === 'taken'}
-                    helperText={
-                      usernameStatus === 'ok' ? '✅ 사용 가능한 아이디입니다.' :
-                      usernameStatus === 'taken' ? '❌ 이미 사용 중인 아이디입니다.' : ''
-                    }
-                  />
-                  <Button
-                    variant='outlined'
-                    onClick={handleUsernameCheck}
-                    disabled={usernameStatus === 'checking'}
-                    sx={{ minWidth: 80, borderColor: '#5ab0d0', color: '#5ab0d0', flexShrink: 0, height: '56px' }}
-                  >
-                    {usernameStatus === 'checking' ? <CircularProgress size={16} /> : '중복확인'}
-                  </Button>
-                </Box>
+              <Box sx={{ display: 'flex', gap: 1, alignItems: 'flex-start' }}>
+                <TextField
+                  label='아이디 *'
+                  name='username'
+                  value={form.username}
+                  onChange={handleChange}
+                  fullWidth
+                  placeholder='영문/숫자, 3자 이상'
+                  slotProps={{ inputLabel: { shrink: true } }}
+                  error={usernameStatus === 'taken'}
+                  helperText={
+                    usernameStatus === 'ok' ? '✅ 사용 가능한 아이디입니다.' :
+                    usernameStatus === 'taken' ? '❌ 이미 사용 중인 아이디입니다.' : ''
+                  }
+                />
+                <Button
+                  variant='outlined'
+                  onClick={handleUsernameCheck}
+                  disabled={usernameStatus === 'checking'}
+                  sx={{ minWidth: 80, borderColor: '#5ab0d0', color: '#5ab0d0', flexShrink: 0, height: '56px' }}
+                >
+                  {usernameStatus === 'checking' ? <CircularProgress size={16} /> : '중복확인'}
+                </Button>
               </Box>
 
               <Box>
