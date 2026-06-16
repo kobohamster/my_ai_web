@@ -10,6 +10,10 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -34,11 +38,19 @@ jobs:
           VITE_SUPABASE_URL: ${{ secrets.VITE_SUPABASE_URL }}
           VITE_SUPABASE_ANON_KEY: ${{ secrets.VITE_SUPABASE_ANON_KEY }}
 
+      - name: Build CHOCORATE (mini_sns)
+        working-directory: lecture1/mini_sns
+        run: |
+          npm install --legacy-peer-deps
+          npm run build
+
       - name: Prepare deploy directory
         run: |
           mkdir -p _deploy/community
+          mkdir -p _deploy/chocorate
           cp index.html _deploy/
           cp -r lecture1/my-community/dist/. _deploy/community/
+          cp -r lecture1/mini_sns/dist/. _deploy/chocorate/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
