@@ -135,6 +135,24 @@ const LoginPage = () => {
               회원가입하러 가기 →
             </Button>
           </Box>
+
+          <Box sx={{
+            mt: 3, p: 2, borderRadius: 2,
+            background: 'rgba(61,127,176,0.08)',
+            border: '1px dashed rgba(90,176,208,0.25)',
+          }}>
+            <Typography variant='caption' sx={{ color: 'text.secondary', display: 'block', mb: 1, fontSize: '0.7rem', letterSpacing: '0.05em' }}>
+              테스트 계정
+            </Typography>
+            <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: 1 }}>
+              <Typography variant='body2' sx={{ fontSize: '0.78rem', color: 'text.secondary' }}>
+                아이디 <Typography component='span' sx={{ color: 'primary.light', fontWeight: 600, fontSize: '0.78rem' }}>test0067</Typography>
+              </Typography>
+              <Typography variant='body2' sx={{ fontSize: '0.78rem', color: 'text.secondary' }}>
+                비밀번호 <Typography component='span' sx={{ color: 'primary.light', fontWeight: 600, fontSize: '0.78rem' }}>Test0616</Typography>
+              </Typography>
+            </Box>
+          </Box>
         </Paper>
       </Container>
     </Box>
