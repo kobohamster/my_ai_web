@@ -1,6 +1,5 @@
 -- ======================================================
--- CHOCORATE 데이터베이스 스키마
--- Supabase SQL 에디터에서 실행하세요
+-- CHOCORATE 데이터베이스 스키마 (재실행 안전 버전)
 -- ======================================================
 
 -- 초콜릿 리뷰 게시물 테이블
@@ -47,7 +46,7 @@ create table if not exists choco_comments (
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
 
--- 체험 예약 테이블
+-- 체험 일정 테이블
 create table if not exists choco_experiences (
   id uuid default gen_random_uuid() primary key,
   title text not null,
@@ -61,6 +60,7 @@ create table if not exists choco_experiences (
   created_at timestamp with time zone default timezone('utc'::text, now()) not null
 );
 
+-- 체험 예약 테이블
 create table if not exists choco_reservations (
   id uuid default gen_random_uuid() primary key,
   user_id uuid references auth.users(id) on delete cascade not null,
@@ -82,41 +82,68 @@ alter table choco_experiences enable row level security;
 alter table choco_reservations enable row level security;
 
 -- ======================================================
--- RLS 정책
+-- 기존 정책 삭제 (재실행 시 충돌 방지)
+-- ======================================================
+drop policy if exists "게시물 전체 공개" on choco_posts;
+drop policy if exists "로그인 사용자 게시물 작성" on choco_posts;
+drop policy if exists "작성자 게시물 수정" on choco_posts;
+drop policy if exists "작성자 게시물 삭제" on choco_posts;
+
+drop policy if exists "좋아요 전체 공개" on choco_likes;
+drop policy if exists "로그인 사용자 좋아요" on choco_likes;
+drop policy if exists "좋아요 취소" on choco_likes;
+
+drop policy if exists "내 북마크 조회" on choco_bookmarks;
+drop policy if exists "북마크 추가" on choco_bookmarks;
+drop policy if exists "북마크 삭제" on choco_bookmarks;
+
+drop policy if exists "댓글 전체 공개" on choco_comments;
+drop policy if exists "로그인 사용자 댓글 작성" on choco_comments;
+drop policy if exists "댓글 수정" on choco_comments;
+drop policy if exists "댓글 삭제" on choco_comments;
+
+drop policy if exists "체험 전체 공개" on choco_experiences;
+
+drop policy if exists "내 예약 조회" on choco_reservations;
+drop policy if exists "예약 추가" on choco_reservations;
+drop policy if exists "예약 취소" on choco_reservations;
+
+-- ======================================================
+-- RLS 정책 생성
 -- ======================================================
 
--- choco_posts 정책
+-- choco_posts
 create policy "게시물 전체 공개" on choco_posts for select using (true);
 create policy "로그인 사용자 게시물 작성" on choco_posts for insert with check (auth.role() = 'authenticated');
 create policy "작성자 게시물 수정" on choco_posts for update using (auth.uid() = user_id);
 create policy "작성자 게시물 삭제" on choco_posts for delete using (auth.uid() = user_id);
 
--- choco_likes 정책
+-- choco_likes
 create policy "좋아요 전체 공개" on choco_likes for select using (true);
 create policy "로그인 사용자 좋아요" on choco_likes for insert with check (auth.role() = 'authenticated');
 create policy "좋아요 취소" on choco_likes for delete using (auth.uid() = user_id);
 
--- choco_bookmarks 정책
+-- choco_bookmarks
 create policy "내 북마크 조회" on choco_bookmarks for select using (auth.uid() = user_id);
 create policy "북마크 추가" on choco_bookmarks for insert with check (auth.role() = 'authenticated');
 create policy "북마크 삭제" on choco_bookmarks for delete using (auth.uid() = user_id);
 
--- choco_comments 정책
+-- choco_comments
 create policy "댓글 전체 공개" on choco_comments for select using (true);
 create policy "로그인 사용자 댓글 작성" on choco_comments for insert with check (auth.role() = 'authenticated');
 create policy "댓글 수정" on choco_comments for update using (auth.uid() = user_id);
 create policy "댓글 삭제" on choco_comments for delete using (auth.uid() = user_id);
 
--- choco_experiences 정책
+-- choco_experiences
 create policy "체험 전체 공개" on choco_experiences for select using (true);
 
--- choco_reservations 정책
+-- choco_reservations
 create policy "내 예약 조회" on choco_reservations for select using (auth.uid() = user_id);
 create policy "예약 추가" on choco_reservations for insert with check (auth.role() = 'authenticated');
 create policy "예약 취소" on choco_reservations for delete using (auth.uid() = user_id);
 
 -- ======================================================
--- 테스트 체험 데이터 삽입
+-- 테스트 체험 데이터 삽입 (중복 시 무시)
 -- ======================================================
 insert into choco_experiences (title, location, description, price, capacity, event_date, event_time) values
   ('부산 초콜릿 공방 체험', '부산 해운대구', '직접 템퍼링부터 몰딩까지! 나만의 초콜릿을 만들어보세요.', 45000, 10, '2026-07-05', '14:00'),
