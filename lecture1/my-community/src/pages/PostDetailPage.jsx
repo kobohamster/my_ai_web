@@ -11,7 +11,7 @@ import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
 import CheckIcon from '@mui/icons-material/Check'
 import CloseIcon from '@mui/icons-material/Close'
-import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline'
+import ForumOutlinedIcon from '@mui/icons-material/ForumOutlined'
 import { supabase } from '../supabase'
 import { useAuth } from '../context/AuthContext'
 
@@ -441,7 +441,7 @@ const PostDetailPage = () => {
             {/* 댓글 섹션 */}
             <Paper elevation={0} sx={{ p: { xs: 3, sm: 4 }, borderRadius: 3 }}>
               <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 3 }}>
-                <ChatBubbleOutlineIcon sx={{ fontSize: 18, color: 'primary.light' }} />
+                <ForumOutlinedIcon sx={{ fontSize: 18, color: 'primary.light' }} />
                 <Typography variant='h3' sx={{ fontSize: '1rem', fontWeight: 600 }}>
                   댓글
                 </Typography>
