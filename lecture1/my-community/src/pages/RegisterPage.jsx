@@ -177,7 +177,7 @@ const RegisterPage = () => {
                     variant='outlined'
                     onClick={handleUsernameCheck}
                     disabled={usernameStatus === 'checking'}
-                    sx={{ minWidth: 80, borderColor: '#5ab0d0', color: '#5ab0d0', flexShrink: 0, alignSelf: 'flex-start', mt: 0.5 }}
+                    sx={{ minWidth: 80, borderColor: '#5ab0d0', color: '#5ab0d0', flexShrink: 0, alignSelf: 'flex-start', mt: '23px', height: '56px' }}
                   >
                     {usernameStatus === 'checking' ? <CircularProgress size={16} /> : '중복확인'}
                   </Button>
@@ -214,6 +214,12 @@ const RegisterPage = () => {
                 fullWidth
                 slotProps={{ inputLabel: { shrink: true } }}
                 helperText='15세 이상만 가입 가능합니다'
+                sx={{
+                  '& input[type="date"]::-webkit-calendar-picker-indicator': {
+                    filter: 'invert(1) opacity(0.6)',
+                    cursor: 'pointer',
+                  },
+                }}
               />
 
               <Button
