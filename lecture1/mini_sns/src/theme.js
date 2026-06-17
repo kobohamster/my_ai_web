@@ -27,29 +27,29 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: '"Noto Sans KR", "Roboto", sans-serif',
+    fontFamily: '"Pretendard Variable", "Noto Sans KR", sans-serif',
     h1: {
-      fontFamily: '"Playfair Display", "Georgia", serif',
+      fontFamily: '"Zen Serif", "Georgia", serif',
       fontWeight: 700,
     },
     h2: {
-      fontFamily: '"Playfair Display", "Georgia", serif',
+      fontFamily: '"Zen Serif", "Georgia", serif',
       fontWeight: 700,
     },
     h3: {
-      fontFamily: '"Playfair Display", "Georgia", serif',
+      fontFamily: '"Zen Serif", "Georgia", serif',
       fontWeight: 600,
     },
     h4: {
-      fontFamily: '"Playfair Display", "Georgia", serif',
+      fontFamily: '"Zen Serif", "Georgia", serif',
       fontWeight: 600,
     },
     h5: {
-      fontFamily: '"Playfair Display", "Georgia", serif',
+      fontFamily: '"Zen Serif", "Georgia", serif',
       fontWeight: 600,
     },
     h6: {
-      fontFamily: '"Playfair Display", "Georgia", serif',
+      fontFamily: '"Zen Serif", "Georgia", serif',
       fontWeight: 600,
     },
   },
@@ -63,7 +63,7 @@ const theme = createTheme({
           borderRadius: 8,
           textTransform: 'none',
           fontWeight: 600,
-          fontFamily: '"Noto Sans KR", sans-serif',
+          fontFamily: '"Pretendard Variable", "Noto Sans KR", sans-serif',
         },
       },
     },

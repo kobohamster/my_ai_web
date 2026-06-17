@@ -95,7 +95,7 @@ const PostCreatePage = () => {
       <Box sx={{ bgcolor: 'primary.main', py: 4, textAlign: 'center', position: 'relative' }}>
         <Box sx={{ position: 'absolute', top: 0, left: 0, right: 0, height: 4, background: 'repeating-linear-gradient(90deg, #ca1c1d 0px, #ca1c1d 20px, #422b21 20px, #422b21 40px)' }} />
         <Typography variant="h3" sx={{ color: '#f8edad' }}>초콜릿 품평 작성</Typography>
-        <Typography variant="body2" sx={{ color: 'rgba(248,237,173,0.7)', mt: 0.5, fontFamily: '"Noto Sans KR", sans-serif' }}>
+        <Typography variant="body2" sx={{ color: 'rgba(248,237,173,0.7)', mt: 0.5, fontFamily: '"Pretendard Variable", "Noto Sans KR", sans-serif' }}>
           당신만의 초콜릿 이야기를 들려주세요
         </Typography>
       </Box>
@@ -108,7 +108,7 @@ const PostCreatePage = () => {
             {/* 기본 정보 */}
             <Typography variant="h5" sx={{ color: 'primary.main', mb: 3 }}>📝 기본 정보</Typography>
             <Grid container spacing={2} sx={{ mb: 4 }}>
-              <Grid item xs={12} md={8}>
+              <Grid size={{ xs: 12, md: 8 }}>
                 <TextField
                   fullWidth required
                   label="초콜릿 이름 *"
@@ -117,7 +117,7 @@ const PostCreatePage = () => {
                   onChange={(e) => setForm(p => ({ ...p, title: e.target.value }))}
                 />
               </Grid>
-              <Grid item xs={12} md={4}>
+              <Grid size={{ xs: 12, md: 4 }}>
                 <TextField
                   fullWidth
                   label="브랜드"
@@ -126,7 +126,7 @@ const PostCreatePage = () => {
                   onChange={(e) => setForm(p => ({ ...p, brand: e.target.value }))}
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid size={12}>
                 <TextField
                   fullWidth multiline rows={4}
                   label="리뷰 내용"
@@ -178,7 +178,7 @@ const PostCreatePage = () => {
             <Typography variant="h5" sx={{ color: 'primary.main', mb: 3 }}>
               📊 맛 평가
             </Typography>
-            <Typography variant="body2" sx={{ color: 'text.secondary', mb: 3, fontFamily: '"Noto Sans KR", sans-serif' }}>
+            <Typography variant="body2" sx={{ color: 'text.secondary', mb: 3, fontFamily: '"Pretendard Variable", "Noto Sans KR", sans-serif' }}>
               각 맛의 강도를 0~100 사이로 조절하세요
             </Typography>
 
@@ -213,7 +213,7 @@ const PostCreatePage = () => {
                     sx={{
                       color,
                       '& .MuiSlider-thumb': { '&:hover, &.Mui-focusVisible': { boxShadow: `0 0 0 8px ${color}33` } },
-                      '& .MuiSlider-markLabel': { fontFamily: '"Noto Sans KR", sans-serif', fontSize: 11, color: 'text.secondary' },
+                      '& .MuiSlider-markLabel': { fontFamily: '"Pretendard Variable", "Noto Sans KR", sans-serif', fontSize: 11, color: 'text.secondary' },
                     }}
                   />
                 </Box>

@@ -159,7 +159,7 @@ const PostDetailPage = () => {
               {post.title}
             </Typography>
             {post.brand && (
-              <Typography variant="h6" sx={{ color: 'rgba(248,237,173,0.8)', fontFamily: '"Noto Sans KR", sans-serif', fontWeight: 400 }}>
+              <Typography variant="h6" sx={{ color: 'rgba(248,237,173,0.8)', fontFamily: '"Pretendard Variable", "Noto Sans KR", sans-serif', fontWeight: 400 }}>
                 {post.brand}
               </Typography>
             )}
@@ -201,14 +201,14 @@ const PostDetailPage = () => {
 
           {/* 설명 */}
           {post.description && (
-            <Typography variant="body1" sx={{ color: 'text.primary', mb: 3, lineHeight: 1.8, fontFamily: '"Noto Sans KR", sans-serif' }}>
+            <Typography variant="body1" sx={{ color: 'text.primary', mb: 3, lineHeight: 1.8, fontFamily: '"Pretendard Variable", "Noto Sans KR", sans-serif' }}>
               {post.description}
             </Typography>
           )}
 
           {/* 해시태그 */}
           {post.hashtags?.length > 0 && (
-            <Stack direction="row" spacing={1} flexWrap="wrap" gap={1} sx={{ mb: 4 }}>
+            <Stack direction="row" spacing={1} sx={{ flexWrap: 'wrap', gap: 1, mb: 4 }}>
               {post.hashtags.map((tag) => (
                 <Chip
                   key={tag} label={`#${tag}`}
@@ -231,7 +231,7 @@ const PostDetailPage = () => {
                   <PolarGrid stroke="rgba(66,43,33,0.2)" />
                   <PolarAngleAxis
                     dataKey="subject"
-                    tick={{ fill: '#422b21', fontFamily: '"Noto Sans KR", sans-serif', fontSize: 14, fontWeight: 600 }}
+                    tick={{ fill: '#422b21', fontFamily: '"Pretendard Variable", "Noto Sans KR", sans-serif', fontSize: 14, fontWeight: 600 }}
                   />
                   <PolarRadiusAxis angle={90} domain={[0, 100]} tick={{ fill: '#7a5c4e', fontSize: 11 }} />
                   <Radar
@@ -335,7 +335,7 @@ const PostDetailPage = () => {
                         </IconButton>
                       )}
                     </Box>
-                    <Typography variant="body2" sx={{ color: 'text.primary', fontFamily: '"Noto Sans KR", sans-serif' }}>
+                    <Typography variant="body2" sx={{ color: 'text.primary', fontFamily: '"Pretendard Variable", "Noto Sans KR", sans-serif' }}>
                       {comment.content}
                     </Typography>
                   </Box>

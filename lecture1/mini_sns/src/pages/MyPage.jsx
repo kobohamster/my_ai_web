@@ -80,7 +80,7 @@ const MyPage = () => {
         <Typography variant="h5" sx={{ color: '#f8edad', mb: 0.5 }}>
           {user.email}
         </Typography>
-        <Stack direction="row" spacing={3} justifyContent="center" sx={{ mt: 2 }}>
+        <Stack direction="row" spacing={3} sx={{ justifyContent: 'center', mt: 2 }}>
           <Box sx={{ textAlign: 'center' }}>
             <Typography variant="h6" sx={{ color: '#f8edad', fontWeight: 700 }}>{myPosts.length}</Typography>
             <Typography variant="caption" sx={{ color: 'rgba(248,237,173,0.7)' }}>내 품평</Typography>
@@ -103,7 +103,7 @@ const MyPage = () => {
           onChange={(_, v) => setTab(v)}
           sx={{
             mb: 4,
-            '& .MuiTab-root': { color: 'text.secondary', fontFamily: '"Noto Sans KR", sans-serif', fontWeight: 600 },
+            '& .MuiTab-root': { color: 'text.secondary', fontFamily: '"Pretendard Variable", "Noto Sans KR", sans-serif', fontWeight: 600 },
             '& .Mui-selected': { color: 'primary.main' },
             '& .MuiTabs-indicator': { bgcolor: 'primary.main' },
           }}
@@ -132,7 +132,7 @@ const MyPage = () => {
               ) : (
                 <Grid container spacing={3}>
                   {myPosts.map((post, idx) => (
-                    <Grid item xs={12} sm={6} md={4} key={post.id}>
+                    <Grid size={{ xs: 12, sm: 6, md: 4 }} key={post.id}>
                       <Card sx={{ cursor: 'pointer', '&:hover': { transform: 'translateY(-4px)' }, transition: 'transform 0.2s' }}>
                         <CardActionArea onClick={() => navigate(`/posts/${post.id}`)}>
                           <CardMedia
@@ -144,7 +144,7 @@ const MyPage = () => {
                             <Typography variant="h6" sx={{ color: 'primary.main' }} noWrap>{post.title}</Typography>
                             {post.brand && <Typography variant="body2" sx={{ color: 'text.secondary' }}>{post.brand}</Typography>}
                             {post.hashtags?.length > 0 && (
-                              <Stack direction="row" spacing={0.5} flexWrap="wrap" gap={0.5} sx={{ mt: 1 }}>
+                              <Stack direction="row" spacing={0.5} sx={{ flexWrap: 'wrap', gap: 0.5, mt: 1 }}>
                                 {post.hashtags.slice(0, 2).map(t => (
                                   <Chip key={t} label={`#${t}`} size="small" sx={{ bgcolor: 'rgba(66,43,33,0.08)', color: 'primary.main', fontSize: 11 }} />
                                 ))}
@@ -172,7 +172,7 @@ const MyPage = () => {
               ) : (
                 <Grid container spacing={3}>
                   {bookmarks.map((post, idx) => (
-                    <Grid item xs={12} sm={6} md={4} key={post.id}>
+                    <Grid size={{ xs: 12, sm: 6, md: 4 }} key={post.id}>
                       <Card sx={{ cursor: 'pointer', '&:hover': { transform: 'translateY(-4px)' }, transition: 'transform 0.2s' }}>
                         <CardActionArea onClick={() => navigate(`/posts/${post.id}`)}>
                           <CardMedia
@@ -210,7 +210,7 @@ const MyPage = () => {
                       <Typography variant="body2" sx={{ color: 'primary.main', fontWeight: 700, mb: 0.5 }}>
                         📝 {comment.choco_posts?.title}
                       </Typography>
-                      <Typography variant="body2" sx={{ color: 'text.primary', fontFamily: '"Noto Sans KR", sans-serif' }}>
+                      <Typography variant="body2" sx={{ color: 'text.primary', fontFamily: '"Pretendard Variable", "Noto Sans KR", sans-serif' }}>
                         {comment.content}
                       </Typography>
                       <Typography variant="caption" sx={{ color: 'text.secondary', mt: 1, display: 'block' }}>

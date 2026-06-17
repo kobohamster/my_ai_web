@@ -74,7 +74,7 @@ const ExperiencePage = () => {
       <Box sx={{ bgcolor: 'primary.main', py: 6, textAlign: 'center', position: 'relative' }}>
         <Box sx={{ position: 'absolute', top: 0, left: 0, right: 0, height: 4, background: 'repeating-linear-gradient(90deg, #ca1c1d 0px, #ca1c1d 20px, #422b21 20px, #422b21 40px)' }} />
         <Typography variant="h3" sx={{ color: '#f8edad', mb: 1 }}>🎪 초콜릿 체험 예약</Typography>
-        <Typography variant="body1" sx={{ color: 'rgba(248,237,173,0.7)', fontFamily: '"Noto Sans KR", sans-serif' }}>
+        <Typography variant="body1" sx={{ color: 'rgba(248,237,173,0.7)', fontFamily: '"Pretendard Variable", "Noto Sans KR", sans-serif' }}>
           전국 초콜릿 공방 체험 일정을 한눈에
         </Typography>
       </Box>

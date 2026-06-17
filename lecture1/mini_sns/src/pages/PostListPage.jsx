@@ -90,7 +90,7 @@ const PostCard = ({ post, idx, onClick }) => (
         </Box>
 
         {post.hashtags?.length > 0 && (
-          <Stack direction="row" spacing={0.5} flexWrap="wrap" gap={0.5}>
+          <Stack direction="row" spacing={0.5} sx={{ flexWrap: 'wrap', gap: 0.5 }}>
             {post.hashtags.slice(0, 3).map((tag) => (
               <Chip
                 key={tag} label={`#${tag}`} size="small"
@@ -145,7 +145,7 @@ const PostListPage = () => {
         <Typography variant="h3" sx={{ color: '#f8edad', mb: 1 }}>
           초콜릿 품평 목록
         </Typography>
-        <Typography variant="body1" sx={{ color: 'rgba(248,237,173,0.7)', fontFamily: '"Noto Sans KR", sans-serif' }}>
+        <Typography variant="body1" sx={{ color: 'rgba(248,237,173,0.7)', fontFamily: '"Pretendard Variable", "Noto Sans KR", sans-serif' }}>
           초콜릿 애호가들의 솔직한 리뷰를 확인하세요
         </Typography>
       </Box>
@@ -185,13 +185,13 @@ const PostListPage = () => {
         <Grid container spacing={3}>
           {loading
             ? Array.from({ length: 6 }).map((_, i) => (
-                <Grid item xs={12} sm={6} md={4} key={i}>
+                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={i}>
                   <Skeleton variant="rectangular" height={320} sx={{ borderRadius: 4 }} />
                 </Grid>
               ))
             : filtered.length === 0
               ? (
-                <Grid item xs={12}>
+                <Grid size={12}>
                   <Box sx={{ textAlign: 'center', py: 10 }}>
                     <Typography sx={{ fontSize: '3rem', mb: 2 }}>🔍</Typography>
                     <Typography variant="h5" sx={{ color: 'primary.light' }}>
@@ -201,7 +201,7 @@ const PostListPage = () => {
                 </Grid>
               )
               : filtered.map((post, idx) => (
-                  <Grid item xs={12} sm={6} md={4} key={post.id}>
+                  <Grid size={{ xs: 12, sm: 6, md: 4 }} key={post.id}>
                     <PostCard
                       post={post}
                       idx={idx}

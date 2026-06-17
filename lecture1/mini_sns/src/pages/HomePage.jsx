@@ -72,7 +72,7 @@ const HomePage = () => {
             variant="h5"
             sx={{
               color: 'rgba(248,237,173,0.85)',
-              fontFamily: '"Noto Sans KR", sans-serif',
+              fontFamily: '"Pretendard Variable", "Noto Sans KR", sans-serif',
               fontWeight: 400,
               mb: 1,
             }}
@@ -83,7 +83,7 @@ const HomePage = () => {
             variant="body1"
             sx={{
               color: 'rgba(248,237,173,0.7)',
-              fontFamily: '"Noto Sans KR", sans-serif',
+              fontFamily: '"Pretendard Variable", "Noto Sans KR", sans-serif',
               mb: 5,
               maxWidth: 480,
               mx: 'auto',
@@ -93,7 +93,7 @@ const HomePage = () => {
             <br />
             초콜릿 애호가들과 함께 나눠보세요.
           </Typography>
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
+          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ justifyContent: 'center' }}>
             <Button
               variant="contained"
               size="large"
@@ -139,44 +139,53 @@ const HomePage = () => {
         />
       </Box>
 
-      {/* 특징 소개 섹션 */}
-      <Container maxWidth="lg" sx={{ py: 8 }}>
-        <Typography variant="h3" sx={{ textAlign: 'center', color: 'primary.main', mb: 6 }}>
-          CHOCORATE에서 할 수 있는 것
-        </Typography>
-        <Grid container spacing={4}>
-          {[
-            { emoji: '📊', title: '맛 분석 레이더', desc: '단맛, 쓴맛, 신맛, 짠맛, 감칠맛을\n5가지 축으로 시각화' },
-            { emoji: '🔖', title: '나만의 북마크', desc: '마음에 드는 초콜릿 리뷰를\n나중에 볼 수 있게 저장' },
-            { emoji: '💬', title: '커뮤니티 토론', desc: '같은 초콜릿을 좋아하는 사람들과\n자유롭게 의견 나누기' },
-            { emoji: '🎪', title: '체험 예약', desc: '지역 초콜릿 공방 체험 일정을\n한눈에 보고 예약하기' },
-          ].map((item) => (
-            <Grid item xs={12} sm={6} md={3} key={item.title}>
-              <Box
-                sx={{
-                  textAlign: 'center',
-                  p: 4,
-                  borderRadius: 4,
-                  bgcolor: 'background.paper',
-                  border: '1px solid',
-                  borderColor: 'rgba(66,43,33,0.15)',
-                  height: '100%',
-                  transition: 'transform 0.2s, box-shadow 0.2s',
-                  '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 8px 30px rgba(66,43,33,0.15)' },
-                }}
-              >
-                <Typography sx={{ fontSize: '2.5rem', mb: 2 }}>{item.emoji}</Typography>
-                <Typography variant="h6" sx={{ color: 'primary.main', mb: 1 }}>
-                  {item.title}
-                </Typography>
-                <Typography variant="body2" sx={{ color: 'text.secondary', whiteSpace: 'pre-line' }}>
-                  {item.desc}
-                </Typography>
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
+      {/* 특징 소개 섹션 (풀스크린) */}
+      <Box
+        sx={{
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          py: 8,
+        }}
+      >
+        <Container maxWidth="lg">
+          <Typography variant="h3" sx={{ textAlign: 'center', color: 'primary.main', mb: 6, fontSize: { xs: '1.5rem', md: '2rem' } }}>
+            CHOCORATE에서 할 수 있는 것
+          </Typography>
+          <Grid container spacing={4}>
+            {[
+              { emoji: '📊', title: '맛 분석 레이더', desc: '단맛, 쓴맛, 신맛, 짠맛, 감칠맛을\n5가지 축으로 시각화' },
+              { emoji: '🔖', title: '나만의 북마크', desc: '마음에 드는 초콜릿 리뷰를\n나중에 볼 수 있게 저장' },
+              { emoji: '💬', title: '커뮤니티 토론', desc: '같은 초콜릿을 좋아하는 사람들과\n자유롭게 의견 나누기' },
+              { emoji: '🎪', title: '체험 예약', desc: '지역 초콜릿 공방 체험 일정을\n한눈에 보고 예약하기' },
+            ].map((item) => (
+              <Grid size={{ xs: 6, sm: 6, md: 3 }} key={item.title}>
+                <Box
+                  sx={{
+                    textAlign: 'center',
+                    p: 4,
+                    borderRadius: 4,
+                    bgcolor: 'background.paper',
+                    border: '1px solid',
+                    borderColor: 'rgba(66,43,33,0.15)',
+                    height: '100%',
+                    transition: 'transform 0.2s, box-shadow 0.2s',
+                    '&:hover': { transform: 'translateY(-4px)', boxShadow: '0 8px 30px rgba(66,43,33,0.15)' },
+                  }}
+                >
+                  <Typography sx={{ fontSize: '2.5rem', mb: 2 }}>{item.emoji}</Typography>
+                  <Typography variant="h6" sx={{ color: 'primary.main', mb: 1 }}>
+                    {item.title}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary', whiteSpace: 'pre-line' }}>
+                    {item.desc}
+                  </Typography>
+                </Box>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
+      </Box>
 
       {/* 최근 리뷰 섹션 */}
       <Box sx={{ bgcolor: 'rgba(66,43,33,0.05)', py: 8 }}>
@@ -214,7 +223,7 @@ const HomePage = () => {
           ) : (
             <Grid container spacing={3}>
               {recentPosts.map((post, idx) => (
-                <Grid item xs={12} sm={6} md={4} key={post.id}>
+                <Grid size={{ xs: 12, sm: 6, md: 4 }} key={post.id}>
                   <Card
                     sx={{
                       height: '100%',
@@ -247,7 +256,7 @@ const HomePage = () => {
                           </Typography>
                         </Box>
                         {post.hashtags?.length > 0 && (
-                          <Stack direction="row" spacing={0.5} flexWrap="wrap" gap={0.5}>
+                          <Stack direction="row" spacing={0.5} sx={{ flexWrap: 'wrap', gap: 0.5 }}>
                             {post.hashtags.slice(0, 3).map((tag) => (
                               <Chip
                                 key={tag} label={`#${tag}`} size="small"
@@ -271,7 +280,7 @@ const HomePage = () => {
         <Typography variant="h3" sx={{ color: '#f8edad', mb: 2 }}>
           지금 바로 시작하세요
         </Typography>
-        <Typography variant="body1" sx={{ color: 'rgba(248,237,173,0.7)', mb: 4, fontFamily: '"Noto Sans KR", sans-serif' }}>
+        <Typography variant="body1" sx={{ color: 'rgba(248,237,173,0.7)', mb: 4, fontFamily: '"Pretendard Variable", "Noto Sans KR", sans-serif' }}>
           초콜릿 한 조각의 이야기를 함께 나눠봐요
         </Typography>
         <Button
