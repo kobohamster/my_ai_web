@@ -37,7 +37,16 @@ const HeroSection = ({ title, description, bannerImage }) => {
             >
               지금 바로 가입하기
             </Button>
-            <Button variant="outlined" size="large" color="inherit" startIcon={<PlayArrowIcon />}>
+            <Button
+              component="a"
+              href="https://youtu.be/wQf6sDtmPVo?si=cyqCxCaOaDTUQ1NH"
+              target="_blank"
+              rel="noopener noreferrer"
+              variant="outlined"
+              size="large"
+              color="inherit"
+              startIcon={<PlayArrowIcon />}
+            >
               예고편 재생하기
             </Button>
           </Stack>
