@@ -1,13 +1,44 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { Box, Container, Typography, IconButton } from '@mui/material'
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft'
 import ChevronRightIcon from '@mui/icons-material/ChevronRight'
 
 const RecommendCarousel = ({ items }) => {
   const trackRef = useRef(null)
+  const dragRef = useRef({ active: false, startX: 0, startScrollLeft: 0 })
+  const [isDragging, setIsDragging] = useState(false)
 
   const scrollByAmount = (direction) => {
     trackRef.current?.scrollBy({ left: direction * 480, behavior: 'smooth' })
+  }
+
+  const handlePointerDown = (event) => {
+    const track = trackRef.current
+    if (!track) return
+    dragRef.current = {
+      active: true,
+      startX: event.clientX,
+      startScrollLeft: track.scrollLeft,
+    }
+    track.setPointerCapture(event.pointerId)
+    setIsDragging(true)
+  }
+
+  const handlePointerMove = (event) => {
+    const track = trackRef.current
+    if (!track || !dragRef.current.active) return
+    const delta = event.clientX - dragRef.current.startX
+    track.scrollLeft = dragRef.current.startScrollLeft - delta
+  }
+
+  const endDrag = (event) => {
+    const track = trackRef.current
+    if (!dragRef.current.active) return
+    dragRef.current.active = false
+    setIsDragging(false)
+    if (track && track.hasPointerCapture(event.pointerId)) {
+      track.releasePointerCapture(event.pointerId)
+    }
   }
 
   return (
@@ -27,11 +58,19 @@ const RecommendCarousel = ({ items }) => {
         <Box
           ref={trackRef}
           className="carousel-track"
+          onPointerDown={handlePointerDown}
+          onPointerMove={handlePointerMove}
+          onPointerUp={endDrag}
+          onPointerCancel={endDrag}
+          onPointerLeave={endDrag}
           sx={{
             display: 'flex',
             gap: 2,
             overflowX: 'auto',
-            scrollSnapType: 'x mandatory',
+            scrollSnapType: isDragging ? 'none' : 'x mandatory',
+            touchAction: 'pan-y',
+            cursor: isDragging ? 'grabbing' : 'grab',
+            userSelect: 'none',
             pb: 1,
           }}
         >
@@ -52,6 +91,7 @@ const RecommendCarousel = ({ items }) => {
                 component="img"
                 src={item.image}
                 alt={item.title}
+                draggable={false}
                 sx={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
               />
               <Box
