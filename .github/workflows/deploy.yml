@@ -44,13 +44,29 @@ jobs:
           npm install --legacy-peer-deps
           npm run build
 
+      - name: Build my-ott
+        working-directory: lecture1/my-ott
+        run: |
+          npm install
+          npm run build
+
+      - name: Build my-ottv
+        working-directory: lecture1/my-ottv
+        run: |
+          npm install
+          npm run build
+
       - name: Prepare deploy directory
         run: |
           mkdir -p _deploy/community
           mkdir -p _deploy/chocorate
+          mkdir -p _deploy/ott
+          mkdir -p _deploy/ottv
           cp index.html _deploy/
           cp -r lecture1/my-community/dist/. _deploy/community/
           cp -r lecture1/mini_sns/dist/. _deploy/chocorate/
+          cp -r lecture1/my-ott/dist/. _deploy/ott/
+          cp -r lecture1/my-ottv/dist/. _deploy/ottv/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

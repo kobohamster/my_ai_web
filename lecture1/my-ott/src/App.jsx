@@ -3,7 +3,7 @@ import HomePage from './pages/HomePage.jsx'
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/my_ai_web/ott">
       <Routes>
         <Route path="/" element={<HomePage />} />
       </Routes>

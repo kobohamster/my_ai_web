@@ -4,7 +4,7 @@ import LoginPage from './pages/LoginPage.jsx'
 
 const App = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/my_ai_web/ottv">
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<LoginPage />} />
